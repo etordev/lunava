@@ -1,0 +1,29 @@
+<div class="container">
+  <header class="header">
+    <h1>Lunava</h1>
+    <span class="date">{{ today | date:'fullDate' }}</span>
+  </header>
+
+  <div class="card">
+
+    <div class="lunar-day">
+      {{ lunarDay }}
+    </div>
+
+    <div class="phase">
+      {{ phaseLabel }}
+    </div>
+
+    <div class="patta">
+      Epact: {{ patta }}
+    </div>
+  </div>
+
+  <div class="moon-css">
+    <div class="moon-base"></div>
+    <div
+      class="moon-shadow"
+      [ngStyle]="{ left: shadowOffset + 'px' }"
+    ></div>
+  </div>
+</div>
