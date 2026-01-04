@@ -16,9 +16,11 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/lunava",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
+               "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"
@@ -30,6 +32,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/lunava/",
               "budgets": [
                 {
                   "type": "initial",
@@ -51,7 +54,7 @@
               "sourceMap": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular/build:dev-server",

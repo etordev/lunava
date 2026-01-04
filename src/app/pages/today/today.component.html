@@ -1,8 +1,38 @@
 <div class="container">
-  <header class="header">
+  <header class="app-bar">
+    <div class="app-bar-content">
+
+      <!-- Language dropdown -->
+      <div class="lang-dropdown">
+        <button
+          class="lang-trigger"
+          [cdkMenuTriggerFor]="langMenu"
+        >
+          <span class="flag" [class]="currentLang"></span>
+          <span class="chevron">▾</span>
+        </button>
+
+        <ng-template #langMenu>
+          <div class="lang-menu" cdkMenu>
+            <button
+              *ngFor="let lang of languages"
+              cdkMenuItem
+              (click)="setLang(lang)"
+              [class.active]="lang === currentLang"
+            >
+              <span class="flag" [class]="lang"></span>
+              {{ lang.toUpperCase() }}
+            </button>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </header>
+
+ <div class="header">
     <h1>Lunava</h1>
     <span class="date">{{ today | date:'fullDate' }}</span>
-  </header>
+  </div>
 
   <div class="card">
 
@@ -11,11 +41,17 @@
     </div>
 
     <div class="phase">
-      {{ phaseLabel }}
+      {{
+        phase === 'full'
+          ? ('FullMoon' | translate)
+          : phase === 'growing'
+            ? ('PhaseGrowing' | translate)
+            : ('PhaseWaning' | translate)
+      }}
     </div>
 
-    <div class="patta">
-      Epact: {{ patta }}
+    <div class="epact">
+      {{ 'EpactLabel' | translate }}: {{ epact }}
     </div>
   </div>
 

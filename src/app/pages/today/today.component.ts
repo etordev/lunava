@@ -1,28 +1,46 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { LunavaService } from '../../services/lunava.service';
 import { CommonModule } from '@angular/common';
+import { EpactService } from '../../services/epact.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { CdkMenuModule } from '@angular/cdk/menu';
+import { AVAILABLE_LANGUAGES } from './today.config';
 
 @Component({
   selector: 'app-today',
-   imports: [CommonModule],
+   imports: [CommonModule, TranslateModule, CdkMenuModule],
   templateUrl: './today.component.html'
 })
 export class TodayComponent implements OnInit {
   lunarDay = 0;
   phase = '';
-  patta = 0;
+  epact = 0;
   today = new Date();
   phaseLabel = '';
   shadowX = 100;
   moonScale = 1;
   shadowOffset = 0;
+  languages = AVAILABLE_LANGUAGES;
+  currentLang = 'en';
 
   constructor(private lunava: LunavaService,
+              private translate: TranslateService,
+              private epactService: EpactService,
               private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
+    this.initLang();
     this.initData();
+  }
+
+  initLang() {
+    this.currentLang = this.translate.currentLang || 'en';
+  }
+
+  setLang(lang: string) {
+    this.translate.use(lang);
+    this.currentLang = lang;
   }
 
   async initData() {
@@ -33,22 +51,13 @@ export class TodayComponent implements OnInit {
   }
 
   async setLunavaData() {
-    await this.lunava.updateMarchIfNeeded();
-    const state = await this.lunava.loadState();
-
+    this.epact = await this.epactService.getCurrentEpact();
+    console.log('Current epact:', this.epact);
     const today = new Date();
     const m = (today.getMonth() + 10) % 12 + 1;
     const d = today.getDate();
 
-    console.log('STATE FROM DB:', state);
-    console.log('m,d:', m, d);
-
-    this.patta = state.patta;
-
-    const calc = this.lunava.calcLunarDay(state.patta, m, d);
-    console.log('CALC RESULT:', calc);
-
-    this.lunarDay = calc;
+    this.lunarDay = this.lunava.calcLunarDay(this.epact, m, d);
 
     if (this.lunarDay < 1 || this.lunarDay > 30) {
       console.warn('Invalid lunar day:', this.lunarDay);
@@ -56,11 +65,6 @@ export class TodayComponent implements OnInit {
     }
 
     this.phase = this.lunava.phase(this.lunarDay);
-  }
-
-  async save() {
-    console.log('Saving today...');
-    // per ora vuoto, lo useremo tra poco
   }
 
   updateMoonShadow() {

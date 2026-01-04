@@ -2,8 +2,8 @@
   "name": "lunava",
   "short_name": "lunava",
   "display": "standalone",
-  "scope": "./",
-  "start_url": "./",
+  "scope": "/lunava/",
+  "start_url": "/lunava/",
   "icons": [
     {
       "src": "icons/icon-72x72.png",
