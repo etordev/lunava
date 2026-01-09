@@ -1,39 +1,39 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { AVAILABLE_LANGUAGES, DEFAULT_LANG } from '../constants/lang';
 
-export type Lang = 'en' | 'it' | 'fr' | 'de' | 'es';
 
 @Injectable({ providedIn: 'root' })
 export class LanguageService {
-  readonly DEFAULT_LANG: Lang = 'en';
+  defaultLanguage = DEFAULT_LANG;
 
   constructor(private translate: TranslateService) {}
 
   async init() {
     const saved = await this.loadFromDb();
-    const lang = saved ?? this.DEFAULT_LANG;
+    const lang = saved ?? this.defaultLanguage;
 
-    this.translate.addLangs(['en','it','fr','de','es']);
-    this.translate.setDefaultLang(this.DEFAULT_LANG);
+    this.translate.addLangs(AVAILABLE_LANGUAGES);
+    this.translate.setDefaultLang(this.defaultLanguage);
     this.translate.use(lang);
   }
 
-  set(lang: Lang) {
+  set(lang: string) {
     this.translate.use(lang);
     this.saveToDb(lang);
   }
 
-  get current(): Lang {
-    return this.translate.currentLang as Lang;
+  get current(): string {
+    return this.translate.currentLang;
   }
 
   /* ---- IndexedDB (come EpactService) ---- */
 
-  async saveToDb(lang: Lang) {
-    localStorage.setItem('lunava-lang', lang); // placeholder
+  async saveToDb(lang: string) {
+    localStorage.setItem('lunare-lang', lang); // placeholder
   }
 
-  async loadFromDb(): Promise<Lang | null> {
-    return localStorage.getItem('lunava-lang') as Lang | null;
+  async loadFromDb(): Promise<string> {
+    return localStorage.getItem('lunare-lang') || '';
   }
 }

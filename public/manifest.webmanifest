@@ -1,9 +1,9 @@
 {
-  "name": "lunava",
-  "short_name": "lunava",
+  "name": "lunare",
+  "short_name": "lunare",
   "display": "standalone",
-  "scope": "/lunava/",
-  "start_url": "/lunava/",
+  "scope": "/lunare/",
+  "start_url": "/lunare/",
   "icons": [
     {
       "src": "icons/icon-72x72.png",

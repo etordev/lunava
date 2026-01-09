@@ -9,5 +9,5 @@ import { TodayComponent } from './pages/today/today.component';
   styleUrl: 'app.css'
 })
 export class AppComponent {
-  protected readonly title = signal('lunava');
+  protected readonly title = signal('lunare');
 }

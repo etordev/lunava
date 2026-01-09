@@ -1,12 +1,12 @@
 import Dexie, { Table } from 'dexie';
 
-export interface LunavaState {
+export interface LunareState {
   id: 'current';
   epact: number;
   lastMarchYear: number;
 }
 
-export interface LunavaHistory {
+export interface LunareHistory {
   id?: number;
   date: string; // YYYY-MM-DD
   year: number;
@@ -25,13 +25,13 @@ export interface EpactState {
   description: string;
 }
 
-export class LunavaDB extends Dexie {
-  state!: Table<LunavaState, string>;
-  history!: Table<LunavaHistory, number>;
+export class LunareDB extends Dexie {
+  state!: Table<LunareState, string>;
+  history!: Table<LunareHistory, number>;
   epact!: Table<EpactState, 'epact'>;
 
   constructor() {
-    super('lunava-db');
+    super('lunare-db');
     this.version(2).stores({
       state: 'id',
       epact: 'id'
@@ -39,4 +39,4 @@ export class LunavaDB extends Dexie {
   }
 }
 
-export const db = new LunavaDB();
+export const db = new LunareDB();

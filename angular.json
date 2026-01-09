@@ -2,11 +2,12 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": false
   },
   "newProjectRoot": "projects",
   "projects": {
-    "lunava": {
+    "lunare": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -16,7 +17,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/lunava",
+            "outputPath": "dist/lunare",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -32,7 +33,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/lunava/",
+              "baseHref": "/lunare/",
               "budgets": [
                 {
                   "type": "initial",
@@ -60,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "lunava:build:production"
+              "buildTarget": "lunare:build:production"
             },
             "development": {
-              "buildTarget": "lunava:build:development"
+              "buildTarget": "lunare:build:development"
             }
           },
           "defaultConfiguration": "development"

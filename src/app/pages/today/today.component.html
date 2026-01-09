@@ -30,7 +30,7 @@
   </header>
 
  <div class="header">
-    <h1>Lunava</h1>
+    <h1>Lunare</h1>
     <span class="date">{{ today | date:'fullDate' }}</span>
   </div>
 
@@ -59,7 +59,7 @@
     <div class="moon-base"></div>
     <div
       class="moon-shadow"
-      [ngStyle]="{ left: shadowOffset + 'px' }"
+      [ngStyle]="{ '--shadow': shadowOffset + '%' }"
     ></div>
   </div>
 </div>

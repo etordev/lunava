@@ -1,16 +1,17 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { LunavaService } from '../../services/lunava.service';
+import { LunareService } from '../../services/lunare.service';
 import { CommonModule } from '@angular/common';
 import { EpactService } from '../../services/epact.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CdkMenuModule } from '@angular/cdk/menu';
-import { AVAILABLE_LANGUAGES } from './today.config';
+import { AVAILABLE_LANGUAGES, DEFAULT_LANG } from '../../constants/lang';
 
 @Component({
   selector: 'app-today',
    imports: [CommonModule, TranslateModule, CdkMenuModule],
   templateUrl: './today.component.html'
 })
+
 export class TodayComponent implements OnInit {
   lunarDay = 0;
   phase = '';
@@ -21,12 +22,12 @@ export class TodayComponent implements OnInit {
   moonScale = 1;
   shadowOffset = 0;
   languages = AVAILABLE_LANGUAGES;
-  currentLang = 'en';
+  currentLang = DEFAULT_LANG;
 
-  constructor(private lunava: LunavaService,
-              private translate: TranslateService,
-              private epactService: EpactService,
-              private cdr: ChangeDetectorRef
+  constructor(private _lunareService: LunareService,
+              private _translateService: TranslateService,
+              private _epactService: EpactService,
+              private _cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -35,44 +36,63 @@ export class TodayComponent implements OnInit {
   }
 
   initLang() {
-    this.currentLang = this.translate.currentLang || 'en';
+    this.currentLang = this._translateService.currentLang || 'en';
   }
 
   setLang(lang: string) {
-    this.translate.use(lang);
+    this._translateService.use(lang);
     this.currentLang = lang;
   }
 
   async initData() {
-    await this.setLunavaData();
+    await this.setLunareData();
     this.updateMoonShadow();
     this.updateMoonScale();
-    this.cdr.detectChanges();
+    this._cdr.detectChanges();
   }
 
-  async setLunavaData() {
-    this.epact = await this.epactService.getCurrentEpact();
+  async setLunareData() {
+    this.epact = await this._epactService.getCurrentEpact();
     console.log('Current epact:', this.epact);
     const today = new Date();
     const m = (today.getMonth() + 10) % 12 + 1;
     const d = today.getDate();
 
-    this.lunarDay = this.lunava.calcLunarDay(this.epact, m, d);
+    this.lunarDay = this._lunareService.calcLunarDay(this.epact, m, d);
 
     if (this.lunarDay < 1 || this.lunarDay > 30) {
       console.warn('Invalid lunar day:', this.lunarDay);
       this.lunarDay = 1;
     }
 
-    this.phase = this.lunava.phase(this.lunarDay);
+    this.phase = this._lunareService.phase(this.lunarDay);
   }
 
   updateMoonShadow() {
-    const progress = (this.lunarDay - 15) / 15;
-    // da -1 a +1
+    // giorno lunare normalizzato 1–30
+    const day = this.lunarDay;
 
-     // spostamento ombra (in px)
-    this.shadowOffset = progress * 120;
+    // 🌑 completamente nuova
+    if (day === 30 || day === 0) {
+      this.shadowOffset = 100;
+      return;
+    }
+
+    // 🌕 massimo splendore a 14
+    if (day <= 14) {
+      this.shadowOffset = 0;
+      return;
+    }
+
+    // 🌖 fase calante: 15 → 29
+    // progress: 0 (giorno 15) → 1 (giorno 29)
+    const progress = (day - 15) / 14;
+
+    // curva dolce (molto importante)
+    const eased = Math.pow(progress, 1.35);
+
+    // max oscuramento ≈ 92% (mai subito nero)
+    this.shadowOffset = eased * 92;
   }
 
   updateMoonScale() {

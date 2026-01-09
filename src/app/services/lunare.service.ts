@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
-export class LunavaService {
+export class LunareService {
 
   calcLunarDay(epact: number, month: number, day: number): number {
     let t = epact + month + day;
