@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { LunareService } from '../../services/lunare.service';
 import { CommonModule } from '@angular/common';
 import { EpactService } from '../../services/epact.service';
@@ -12,7 +12,9 @@ import { AVAILABLE_LANGUAGES, DEFAULT_LANG } from '../../constants/lang';
   templateUrl: './today.component.html'
 })
 
-export class TodayComponent implements OnInit {
+export class TodayComponent implements OnInit, OnDestroy {
+  private lastComputedDate = new Date().toDateString();
+  private dayCheckTimer?: number;
   lunarDay = 0;
   phase = '';
   epact = 0;
@@ -33,6 +35,20 @@ export class TodayComponent implements OnInit {
   ngOnInit() {
     this.initLang();
     this.initData();
+    this.startDayWatcher();
+  }
+
+  startDayWatcher() {
+    this.dayCheckTimer = window.setInterval(async () => {
+    const todayString = new Date().toDateString();
+
+    if (todayString !== this.lastComputedDate) {
+      this.lastComputedDate = todayString;
+
+      await this.initData();
+      this._cdr.detectChanges();
+     }
+    }, 60_000);
   }
 
   initLang() {
@@ -101,5 +117,11 @@ export class TodayComponent implements OnInit {
 
     // più evidente
     this.moonScale = 0.6 + normalized * 0.6;
+  }
+
+  ngOnDestroy() {
+  if (this.dayCheckTimer) {
+      clearInterval(this.dayCheckTimer);
+    }
   }
 }
