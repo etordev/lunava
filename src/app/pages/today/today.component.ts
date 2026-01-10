@@ -2,9 +2,10 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { LunareService } from '../../services/lunare.service';
 import { CommonModule } from '@angular/common';
 import { EpactService } from '../../services/epact.service';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { AVAILABLE_LANGUAGES, DEFAULT_LANG } from '../../constants/lang';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-today',
@@ -25,9 +26,12 @@ export class TodayComponent implements OnInit, OnDestroy {
   shadowOffset = 0;
   languages = AVAILABLE_LANGUAGES;
   currentLang = DEFAULT_LANG;
+  formattedDate = '';
+  lunarDayLabel = 'LunarDayLabel';
 
   constructor(private _lunareService: LunareService,
               private _translateService: TranslateService,
+              private _languageService: LanguageService, 
               private _epactService: EpactService,
               private _cdr: ChangeDetectorRef
   ) {}
@@ -52,11 +56,21 @@ export class TodayComponent implements OnInit, OnDestroy {
   }
 
   initLang() {
-    this.currentLang = this._translateService.currentLang || 'en';
+    this._translateService.onLangChange.subscribe(
+      (event: LangChangeEvent) => {
+        this.currentLang = event.lang;
+        this.updateFormattedDate(event.lang);
+        console.log('lang changed →', this.currentLang);
+        this._cdr.detectChanges();
+      }
+    );
+    const lang = this._translateService.currentLang || DEFAULT_LANG;
+    this.updateFormattedDate(lang);
   }
 
   setLang(lang: string) {
-    this._translateService.use(lang);
+    console.log('set lang');
+    this._languageService.set(lang);
     this.currentLang = lang;
   }
 
@@ -119,8 +133,17 @@ export class TodayComponent implements OnInit, OnDestroy {
     this.moonScale = 0.6 + normalized * 0.6;
   }
 
+  updateFormattedDate(lang: string) {
+  this.formattedDate = new Intl.DateTimeFormat(lang, {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(this.today);
+}
+
   ngOnDestroy() {
-  if (this.dayCheckTimer) {
+    if (this.dayCheckTimer) {
       clearInterval(this.dayCheckTimer);
     }
   }

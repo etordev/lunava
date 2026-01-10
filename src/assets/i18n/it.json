@@ -3,5 +3,7 @@
   "FullMoon": "Luna piena",
   "PhaseGrowing": "Luna crescente",
   "PhaseWaning": "Luna calante",
-  "EpactLabel": "Epatta"
+  "EpactLabel": "Epatta",
+  "LunarDayLabel": "giorno lunare",
+  "Tagline": "Il conto della Luna"
 }

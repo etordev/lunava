@@ -3,5 +3,7 @@
   "FullMoon": "Full Moon",
   "PhaseGrowing": "Waxing Moon",
   "PhaseWaning": "Waning Moon",
-  "EpactLabel": "Epact"
+  "EpactLabel": "Epact",
+  "LunarDayLabel": "lunar day",
+  "Tagline": "The moon’s reckoning"
 }

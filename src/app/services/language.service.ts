@@ -12,13 +12,15 @@ export class LanguageService {
   async init() {
     const saved = await this.loadFromDb();
     const lang = saved ?? this.defaultLanguage;
-
+    console.log('lang', lang);
     this.translate.addLangs(AVAILABLE_LANGUAGES);
     this.translate.setDefaultLang(this.defaultLanguage);
     this.translate.use(lang);
   }
 
   set(lang: string) {
+      console.log('💾 saving lang →', lang);
+
     this.translate.use(lang);
     this.saveToDb(lang);
   }
@@ -33,7 +35,7 @@ export class LanguageService {
     localStorage.setItem('lunare-lang', lang); // placeholder
   }
 
-  async loadFromDb(): Promise<string> {
-    return localStorage.getItem('lunare-lang') || '';
+  async loadFromDb(): Promise<string | null> {
+    return localStorage.getItem('lunare-lang');
   }
 }

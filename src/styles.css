@@ -83,11 +83,41 @@
   margin-bottom: 1rem;
 }
 
+.app-tagline {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.app-name {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.app-tagline {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lunar-day-label {
+  margin-bottom: 0.5rem;
+}
+
+.ordinal {
+  font-size: 1.5rem;
+  vertical-align: super;
+  margin-left: 2px;
+  opacity: 0.8;
+}
+
 .lunar-day {
   font-size: 4rem;
   font-weight: 600;
   letter-spacing: -0.05em;
-  margin-bottom: 0.5rem;
 }
 
 .phase {
@@ -99,7 +129,7 @@
 
 .epact {
   margin-top: 1.2rem;
-  font-size: 0.85rem;
+  font-size: 1.3rem;
   opacity: 0.6;
 }
 
