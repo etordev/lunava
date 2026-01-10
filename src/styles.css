@@ -265,6 +265,7 @@
   position: relative;
   margin-left: auto;
   display: flex;
+  margin-right: 2rem;
 }
 
 .lang-trigger {
@@ -321,4 +322,43 @@
 .lang-menu button.active .flag {
   opacity: 1;
   filter: drop-shadow(0 0 6px rgba(124,131,255,0.8));
+}
+
+.app-bar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.explain-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: inherit;
+  opacity: 0.8;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.explain-btn:hover {
+  opacity: 1;
+}
+
+.info-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #3b82f6;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.explain-text {
+  white-space: nowrap;
 }
