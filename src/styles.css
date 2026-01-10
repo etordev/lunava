@@ -127,6 +127,11 @@
   opacity: 0.85;
 }
 
+.lang-label {
+  margin-top: 3px;
+  margin-right: 6px;
+}
+
 .epact {
   margin-top: 1.2rem;
   font-size: 1.3rem;
@@ -259,6 +264,7 @@
 .lang-dropdown {
   position: relative;
   margin-left: auto;
+  display: flex;
 }
 
 .lang-trigger {
