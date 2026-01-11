@@ -25,30 +25,6 @@ export class EpactService {
     return state.epact;
   }
 
-
-  /**
-   * Ensures that the local epact state exists and
-   * is updated according to the number of Marches passed.
-   */
-  private async syncEpact(): Promise<EpactState> {
-    const state = await this.ensureEpact();
-    const now = new Date();
-
-    const updated = this.calculateEpactFrom(
-      state.epact,
-      state.lastMarchYear,
-      now
-    );
-
-    const finalState: EpactState = {
-      ...state,
-      ...updated
-    };
-
-    await db.epact.put(finalState);
-    return finalState;
-  }
-
   /**
    * Loads the local epact state or initializes it
    * from the official public source if missing.
@@ -63,7 +39,7 @@ export class EpactService {
       official.lastMarchYear,
       now
     );
-
+    console.log('recalculated epact', recalculated);
     const state: EpactState = {
       id: 'epact',
       ...official,

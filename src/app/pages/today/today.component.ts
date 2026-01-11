@@ -6,6 +6,8 @@ import { LangChangeEvent, TranslateModule, TranslateService } from '@ngx-transla
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { AVAILABLE_LANGUAGES, DEFAULT_LANG } from '../../constants/lang';
 import { LanguageService } from '../../services/language.service';
+import { Dialog } from '@angular/cdk/dialog';
+import { ExplanationDialogComponent } from '../../explanation-dialog/explanation-dialog.component';
 
 @Component({
   selector: 'app-today',
@@ -30,6 +32,7 @@ export class TodayComponent implements OnInit, OnDestroy {
   lunarDayLabel = 'LunarDayLabel';
 
   constructor(private _lunareService: LunareService,
+              private _dialog: Dialog,
               private _translateService: TranslateService,
               private _languageService: LanguageService, 
               private _epactService: EpactService,
@@ -42,6 +45,13 @@ export class TodayComponent implements OnInit, OnDestroy {
     this.startDayWatcher();
   }
 
+  openExplanation() {
+    this._dialog.open(ExplanationDialogComponent, {
+      backdropClass: 'cdk-overlay-dark-backdrop',
+      panelClass: 'lunare-dialog',
+    });
+  }
+  
   startDayWatcher() {
     this.dayCheckTimer = window.setInterval(async () => {
     const todayString = new Date().toDateString();
