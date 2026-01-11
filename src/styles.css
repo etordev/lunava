@@ -366,14 +366,31 @@
 .dialog {
   background: #0f172a;
   color: #fff;
-  padding: 1.5rem;
-  border-radius: 14px;
-  max-width: 340px;
-  width: 90vw;
+  padding: 1rem;
+  border-radius: 16px;
+
+  width: min(640px, 94vw);
+
+  /* 🔑 chiave mobile */
+  max-height: 85vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog-body {
+  overflow-y: auto;
+  padding-right: 0.5rem;
+
+  /* spazio visivo */
+  margin: 0.75rem 0;
+
+  /* UX migliore */
+  -webkit-overflow-scrolling: touch;
 }
 
 .close-btn {
-  margin-top: 1rem;
-  width: 100%;
+  margin-top: 0.75rem;
+  flex-shrink: 0;
 }
 

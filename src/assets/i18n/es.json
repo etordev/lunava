@@ -7,5 +7,21 @@
   "LunarDayLabel": "día lunar",
   "Tagline": "El conteo de la luna",
   "LangLabel": "Idioma",
-  "ExplainLabel": "Explicación"
+  "ExplainLabel": "Explicación",
+  "Explanation": {
+    "Text1": "Lunare sigue el conteo de la luna, un sistema tradicional para medir el tiempo observando las fases lunares.",
+    "Text2": "Antes de los calendarios modernos, los días del mes se contaban a partir de la luna nueva siguiendo su ciclo natural, que dura aproximadamente 29–30 días.",
+    "Text3": "El día lunar indica cuántos días han pasado desde que comenzó el ciclo lunar actual. El día 1 corresponde a la luna nueva, luego la luna crece, se vuelve llena y finalmente decrece.",
+    "Text4": "La epacta es un número que indica cuántos días han pasado desde la última luna nueva al 1 de enero del año.",
+    "Text5": "Sirve como punto de partida para calcular la secuencia de días lunares durante el año.",
+    "Text6": "Un año solar dura 365 días, mientras que un ciclo lunar dura aproximadamente 29,53 días, dejando una diferencia de unos 11 días cada año.",
+    "Text7": "Por esta razón, la epacta suele aumentar en unos 11 cada año, con correcciones cíclicas cuando se supera el ciclo de 30 días.",
+    "Text8": "Lunare utiliza la epacta del año actual junto con el día y el mes para calcular el día lunar actual.",
+    "Text9": "Ejemplo simplificado: con epacta 29 y fecha 10 de enero, se suman los días transcurridos desde el inicio del año (9): 29 + 9 = 38.",
+    "Text10": "El resultado se normaliza en el ciclo 1–30: 38 − 30 = 8, por lo que hoy es el 8.º día lunar.",
+    "Text11": "Este método no sigue la astronomía moderna al segundo, sino un sistema de conteo tradicional e histórico.",
+    "Text12": "Por esta razón, el resultado puede diferir de los calendarios astronómicos modernos.",
+    "Text13": "Lunare no describe la posición real de la luna en el cielo, sino la forma en que la luna se contaba tradicionalmente a lo largo del tiempo.",
+    "Close": "Cerrar"
+  }
 }

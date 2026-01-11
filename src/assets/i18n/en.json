@@ -7,5 +7,21 @@
   "LunarDayLabel": "lunar day",
   "Tagline": "The moon’s reckoning",
   "LangLabel": "Language",
-  "ExplainLabel": "Explanation"
+  "ExplainLabel": "Explanation",
+  "Explanation": {
+    "Text1": "Lunare follows the moon’s reckoning, a traditional system for measuring time by observing the lunar phases.",
+    "Text2": "Before modern calendars, the days of the month were counted starting from the new moon and following its natural cycle, which lasts about 29–30 days.",
+    "Text3": "The lunar day indicates how many days have passed since the current lunar cycle began. Day 1 is the new moon, then the moon waxes, becomes full, and finally wanes.",
+    "Text4": "The epact is a number that indicates how many days have passed since the last new moon on January 1st of a given year.",
+    "Text5": "It serves as a starting point for calculating the sequence of lunar days throughout the year.",
+    "Text6": "A solar year lasts 365 days, while a lunar cycle lasts about 29.53 days, leaving a difference of about 11 days each year.",
+    "Text7": "For this reason, the epact usually increases by about 11 each year, with cyclical corrections when the 30-day cycle is exceeded.",
+    "Text8": "Lunare uses the epact of the current year together with the day and month to calculate the current lunar day.",
+    "Text9": "Simplified example: with epact 29 and date January 10, the days elapsed since January 1st (9) are added: 29 + 9 = 38.",
+    "Text10": "The result is normalized within the 1–30 cycle: 38 − 30 = 8, so today is the 8th lunar day.",
+    "Text11": "This method does not follow modern astronomy to the second, but a traditional and historical counting system.",
+    "Text12": "For this reason, the result may differ from modern astronomical calendars.",
+    "Text13": "Lunare does not describe the exact position of the moon in the sky, but how the moon was traditionally counted over time.",
+    "Close": "Close"
+  }
 }

@@ -97,7 +97,8 @@ export class TodayComponent implements OnInit, OnDestroy {
     const today = new Date();
     const m = (today.getMonth() + 10) % 12 + 1;
     const d = today.getDate();
-
+    console.log('month', m);
+    console.log('day', d);
     this.lunarDay = this._lunareService.calcLunarDay(this.epact, m, d);
 
     if (this.lunarDay < 1 || this.lunarDay > 30) {

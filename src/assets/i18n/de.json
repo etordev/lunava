@@ -6,5 +6,21 @@
   "LunarDayLabel": "Mondtag",
   "Tagline": "Der Mond zählt die Zeit",
   "LangLabel": "Sprache",
-  "ExplainLabel": "Erklärung"
+  "ExplainLabel": "Erklärung",
+  "Explanation": {
+    "Text1": "Lunare folgt der Zählung des Mondes, einem traditionellen System zur Zeitmessung anhand der Mondphasen.",
+    "Text2": "Vor modernen Kalendern wurden die Tage des Monats gezählt, indem man beim Neumond begann und dem natürlichen Mondzyklus folgte, der etwa 29–30 Tage dauert.",
+    "Text3": "Der Mondtag gibt an, wie viele Tage seit Beginn des aktuellen Mondzyklus vergangen sind. Tag 1 ist der Neumond, danach wächst der Mond, wird voll und nimmt schließlich ab.",
+    "Text4": "Die Epaktenzahl gibt an, wie viele Tage seit dem letzten Neumond am 1. Januar eines Jahres vergangen sind.",
+    "Text5": "Sie dient als Ausgangspunkt für die Berechnung der Mondtage im Laufe des Jahres.",
+    "Text6": "Ein Sonnenjahr dauert 365 Tage, ein Mondzyklus jedoch etwa 29,53 Tage, wodurch jedes Jahr eine Differenz von etwa 11 Tagen entsteht.",
+    "Text7": "Aus diesem Grund erhöht sich die Epakte in der Regel jedes Jahr um etwa 11, mit zyklischen Korrekturen, wenn der 30-Tage-Zyklus überschritten wird.",
+    "Text8": "Lunare verwendet die Epakte des aktuellen Jahres zusammen mit Tag und Monat, um den aktuellen Mondtag zu berechnen.",
+    "Text9": "Vereinfachtes Beispiel: Bei Epakte 29 und dem Datum 10. Januar werden die seit Jahresbeginn vergangenen Tage (9) addiert: 29 + 9 = 38.",
+    "Text10": "Das Ergebnis wird auf den Zyklus 1–30 zurückgeführt: 38 − 30 = 8, also ist heute der 8. Mondtag.",
+    "Text11": "Diese Methode folgt nicht der modernen Astronomie auf die Sekunde genau, sondern einem traditionellen und historischen Zählsystem.",
+    "Text12": "Daher kann das Ergebnis von modernen astronomischen Kalendern abweichen.",
+    "Text13": "Lunare beschreibt nicht die exakte Position des Mondes am Himmel, sondern die Art und Weise, wie der Mond traditionell gezählt wurde.",
+    "Close": "Schließen"
+  }
 }
