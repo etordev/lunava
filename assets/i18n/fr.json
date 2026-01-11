@@ -1,0 +1,38 @@
+{
+  "Lunare": "Lunare",
+  "FullMoon": "Pleine lune",
+  "PhaseGrowing": "Lune croissante",
+  "PhaseWaning": "Lune décroissante",
+  "EpactLabel": "Épacte",
+  "LunarDayLabel": "jour lunaire",
+  "Tagline": "Le compte de la lune",
+  "LangLabel": "Langue",
+  "ExplainLabel": "Explication",
+  "Explanation": {
+    "Title": "Explication",
+    "Intro1": "Lunare suit le décompte lunaire traditionnel pour mesurer le temps à partir des phases de la Lune.",
+    "Intro2": "Avant les calendriers modernes, les jours étaient comptés à partir de la nouvelle lune en suivant son cycle naturel d’environ 29–30 jours.",
+
+    "LunarDayTitle": "Le jour lunaire",
+    "LunarDayText1": "Le jour lunaire indique combien de jours se sont écoulés depuis le début du cycle lunaire.",
+    "LunarDayText2": "Le jour 1 est la nouvelle lune, le jour 14 la pleine lune, puis la Lune décroît jusqu’au jour 30.",
+
+    "EpactTitle": "Qu’est-ce que l’épacte",
+    "EpactText1": "L’épacte indique combien de jours lunaires étaient déjà écoulés au début de l’année.",
+    "EpactText2": "Elle sert de point de départ pour le calcul.",
+
+    "CountTitle": "Comment fonctionne le calcul",
+    "CountText1": "Pour trouver le jour lunaire, on additionne l’épacte, les mois écoulés depuis mars et le jour du mois.",
+    "CountText2": "Si le total dépasse 30, on soustrait 30 jusqu’à revenir dans le cycle lunaire.",
+
+    "ExampleCalc": "Exemple :\nÉpacte 29\nMois depuis mars : 11\nJour du mois : 11\n\n29 + 11 + 11 = 51\n51 − 30 = 21",
+
+    "ExampleResult": "Le résultat est le 21ᵉ jour lunaire, phase de lune décroissante.",
+
+    "YearRuleTitle": "Pourquoi l’épacte augmente",
+    "YearRuleText1": "Une année solaire dure 365 jours, alors qu’un cycle lunaire dure environ 29 jours et demi.",
+    "YearRuleText2": "Pour cette raison, l’épacte augmente d’environ 11 chaque année.",
+
+    "Note": "Cette méthode suit un décompte traditionnel et non la position astronomique réelle de la Lune."
+  }
+}

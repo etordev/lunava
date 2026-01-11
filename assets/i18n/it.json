@@ -1,0 +1,38 @@
+{
+  "Lunare": "Lunare",
+  "FullMoon": "Luna piena",
+  "PhaseGrowing": "Luna crescente",
+  "PhaseWaning": "Luna calante",
+  "EpactLabel": "Epatta",
+  "LunarDayLabel": "giorno lunare",
+  "Tagline": "Il conto della Luna",
+  "LangLabel": "Lingua",
+  "ExplainLabel": "Spiegazione",
+  "Explanation": {
+    "Title": "Spiegazione",
+    "Intro1": "Lunare segue il conto della Luna, un sistema tradizionale usato per misurare il tempo osservando le fasi lunari.",
+    "Intro2": "Prima dei calendari moderni, i giorni venivano contati partendo dalla luna nuova e seguendo il suo ciclo naturale di circa 29–30 giorni.",
+
+    "LunarDayTitle": "Il giorno lunare",
+    "LunarDayText1": "Il giorno lunare indica da quanti giorni è iniziato il ciclo della Luna.",
+    "LunarDayText2": "Il giorno 1 è la luna nuova, il giorno 14 è la luna piena, dal giorno 15 in poi la Luna cala fino al giorno 30.",
+
+    "EpactTitle": "Cos’è l’epatta",
+    "EpactText1": "L’epatta indica quanti giorni di Luna erano già passati all’inizio dell’anno.",
+    "EpactText2": "Serve come punto di partenza per il conteggio dei giorni lunari.",
+
+    "CountTitle": "Come si fa il conteggio",
+    "CountText1": "Per trovare il giorno lunare si sommano tre valori: l’epatta, i mesi trascorsi contando da marzo e i giorni del mese.",
+    "CountText2": "Se il risultato supera 30, si sottrae 30 finché si rientra nel ciclo della Luna.",
+
+    "ExampleCalc": "Esempio:\nEpatta 29\nMesi da marzo: 11\nGiorni del mese: 11\n\n29 + 11 + 11 = 51\n51 − 30 = 21",
+
+    "ExampleResult": "Il risultato è il 21° giorno lunare, fase di luna calante.",
+
+    "YearRuleTitle": "Perché l’epatta aumenta",
+    "YearRuleText1": "Un anno solare dura 365 giorni, mentre un ciclo lunare dura circa 29 giorni e mezzo.",
+    "YearRuleText2": "Per questo motivo, ogni anno l’epatta aumenta di circa 11 giorni, con correzioni quando supera 30.",
+
+    "Note": "Questo metodo segue un conteggio tradizionale e non rappresenta la posizione astronomica reale della Luna."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "Lunare": "Lunare",
+  "FullMoon": "Vollmond",
+  "PhaseGrowing": "Zunehmender Mond",
+  "PhaseWaning": "Abnehmender Mond",
+  "LunarDayLabel": "Mondtag",
+  "Tagline": "Der Mond zählt die Zeit",
+  "LangLabel": "Sprache",
+  "ExplainLabel": "Erklärung",
+  "Explanation": {
+    "Title": "Erklärung",
+    "Intro1": "Lunare folgt der traditionellen Mondzählung, einem System zur Zeitmessung anhand der Mondphasen.",
+    "Intro2": "Vor modernen Kalendern wurden die Tage ab dem Neumond gezählt und dem natürlichen Mondzyklus von etwa 29–30 Tagen gefolgt.",
+
+    "LunarDayTitle": "Der Mondtag",
+    "LunarDayText1": "Der Mondtag zeigt, wie viele Tage seit Beginn des Mondzyklus vergangen sind.",
+    "LunarDayText2": "Tag 1 ist der Neumond, Tag 14 der Vollmond, ab Tag 15 nimmt der Mond wieder ab bis Tag 30.",
+
+    "EpactTitle": "Was ist die Epakte",
+    "EpactText1": "Die Epakte gibt an, wie viele Mondtage zu Beginn des Jahres bereits vergangen waren.",
+    "EpactText2": "Sie dient als Ausgangspunkt für die Berechnung des Mondtages.",
+
+    "CountTitle": "Wie die Zählung funktioniert",
+    "CountText1": "Um den Mondtag zu bestimmen, werden drei Werte addiert: die Epakte, die seit März vergangenen Monate und der aktuelle Tag des Monats.",
+    "CountText2": "Überschreitet das Ergebnis 30, wird 30 abgezogen, bis der Wert wieder im Mondzyklus liegt.",
+
+    "ExampleCalc": "Beispiel:\nEpakte 29\nMonate seit März: 11\nTag des Monats: 11\n\n29 + 11 + 11 = 51\n51 − 30 = 21",
+
+    "ExampleResult": "Das Ergebnis ist der 21. Mondtag, Phase des abnehmenden Mondes.",
+
+    "YearRuleTitle": "Warum die Epakte steigt",
+    "YearRuleText1": "Ein Sonnenjahr dauert 365 Tage, ein Mondzyklus etwa 29 Tage und eine halbe.",
+    "YearRuleText2": "Deshalb steigt die Epakte jedes Jahr um ungefähr 11, mit Korrekturen, wenn sie über 30 hinausgeht.",
+
+    "Note": "Diese Methode folgt einer traditionellen historischen Zählweise und beschreibt nicht die genaue astronomische Position des Mondes."
+  }
+}

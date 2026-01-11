@@ -1,0 +1,38 @@
+{
+  "Lunare": "Lunare",
+  "FullMoon": "Luna llena",
+  "PhaseGrowing": "Luna creciente",
+  "PhaseWaning": "Luna menguante",
+  "EpactLabel": "Epacta",
+  "LunarDayLabel": "día lunar",
+  "Tagline": "El conteo de la luna",
+  "LangLabel": "Idioma",
+  "ExplainLabel": "Explicación",
+  "Explanation": {
+    "Title": "Explicación",
+    "Intro1": "Lunare sigue el conteo lunar tradicional para medir el tiempo observando las fases de la Luna.",
+    "Intro2": "Antes de los calendarios modernos, los días se contaban desde la luna nueva siguiendo su ciclo natural de unos 29–30 días.",
+
+    "LunarDayTitle": "El día lunar",
+    "LunarDayText1": "El día lunar indica cuántos días han pasado desde el inicio del ciclo lunar.",
+    "LunarDayText2": "El día 1 es luna nueva, el día 14 luna llena y a partir del día 15 la Luna mengua hasta el día 30.",
+
+    "EpactTitle": "Qué es la epacta",
+    "EpactText1": "La epacta indica cuántos días lunares ya habían pasado al inicio del año.",
+    "EpactText2": "Sirve como punto de partida para el cálculo.",
+
+    "CountTitle": "Cómo se hace el conteo",
+    "CountText1": "Para obtener el día lunar se suman la epacta, los meses transcurridos desde marzo y el día del mes.",
+    "CountText2": "Si el resultado supera 30, se resta 30 hasta volver al ciclo lunar.",
+
+    "ExampleCalc": "Ejemplo:\nEpacta 29\nMeses desde marzo: 11\nDía del mes: 11\n\n29 + 11 + 11 = 51\n51 − 30 = 21",
+
+    "ExampleResult": "El resultado es el día lunar 21, fase de luna menguante.",
+
+    "YearRuleTitle": "Por qué aumenta la epacta",
+    "YearRuleText1": "Un año solar dura 365 días y un ciclo lunar unos 29 días y medio.",
+    "YearRuleText2": "Por eso, la epacta aumenta aproximadamente 11 cada año.",
+
+    "Note": "Este método sigue un conteo tradicional y no representa la posición astronómica real de la Luna."
+  }
+}
