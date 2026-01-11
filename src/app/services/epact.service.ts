@@ -3,13 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { EpactSource } from '../models/epact';
 import { db, EpactState } from '../db/lunare.db';
+import { EPACT_URL } from '../constants/epact';
 
 /**
  * Epact is a collective, objective lunar value.
  * It is loaded from a public JSON source and
  * deterministically updated over time.
  */
-const EPACT_URL = '/epact.json';
 
 @Injectable({ providedIn: 'root' })
 export class EpactService {
@@ -29,8 +29,8 @@ export class EpactService {
    * Loads the local epact state or initializes it
    * from the official public source if missing.
    */
-  private async ensureEpact(): Promise<EpactState> {
-    const official = await this.loadOfficialEpact();
+  private async ensureEpact(): Promise<any> {
+    const official = EPACT_URL;
     const now = new Date();
 
     // ricalcolo SEMPRE partendo dalla fonte ufficiale
@@ -40,14 +40,13 @@ export class EpactService {
       now
     );
     console.log('recalculated epact', recalculated);
-    const state: EpactState = {
-      id: 'epact',
+    const state = {
       ...official,
       ...recalculated
     };
 
     // sovrascrive sempre: il DB è solo cache
-    await db.epact.put(state);
+    // await db.epact.put(state);
 
     return state;
   }
@@ -56,11 +55,6 @@ export class EpactService {
    * Loads the official epact definition from the JSON.
    * This is the only external source of truth.
    */
-  private async loadOfficialEpact(): Promise<EpactSource> {
-    return firstValueFrom(
-      this.http.get<EpactSource>(EPACT_URL)
-    );
-  }
 
   /**
    * Advances the epact by one lunar year (+11 mod 30).

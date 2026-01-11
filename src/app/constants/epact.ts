@@ -1,0 +1,8 @@
+export const EPACT_URL = {
+  "epact": 29,
+  "lastMarchYear": 2025,
+  "authority": "Lunare",
+  "description": "The epact is the age of the Moon in days at the beginning of the lunar year. It represents the difference between the solar year and the lunar cycle and is used to track lunar phases across years.",
+  "method": "This epact follows a traditional rule: it increases by 11 days every March, modulo 30.",
+  "note": "This is a collective and objective epact used as the official reference for the Lunare application."
+};

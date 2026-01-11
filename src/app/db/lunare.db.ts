@@ -23,6 +23,8 @@ export interface EpactState {
   lastMarchYear: number;
   authority: string;
   description: string;
+  method?: string;
+  note?: string;
 }
 
 export class LunareDB extends Dexie {
