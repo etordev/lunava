@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1768156086463,
+  "timestamp": 1768161937041,
   "index": "/lunare/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/lunare/favicon.ico",
         "/lunare/index.html",
-        "/lunare/main-C5REQS56.js",
+        "/lunare/main-RZX2PSDH.js",
         "/lunare/manifest.webmanifest",
         "/lunare/styles-FR3WI56N.css"
       ],
@@ -65,8 +65,8 @@
     "/lunare/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
     "/lunare/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
     "/lunare/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
-    "/lunare/index.html": "f98665a94c398726efc66f0e7e93585ecedb525a",
-    "/lunare/main-C5REQS56.js": "d240776fb290dcaf2497f4102183efab29e3e559",
+    "/lunare/index.html": "f814549818271f3c16e8864c597cb2b65d449e67",
+    "/lunare/main-RZX2PSDH.js": "d45f593790906dbbb4f57ff0458125ef2da8b9a4",
     "/lunare/manifest.webmanifest": "6dd8f3bc3640ea710d7445b0b5edfefc11dcc678",
     "/lunare/media/de-MZUAL5O7.svg": "f46bdcf00fbd79c764b116ef8250e678e4b71c8b",
     "/lunare/media/es-W5FXGZQG.svg": "c285598333fe5528683dcacfb4703245c15946fe",
