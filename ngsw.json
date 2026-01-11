@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1768161937041,
+  "timestamp": 1768162697313,
   "index": "/lunare/index.html",
   "assetGroups": [
     {
@@ -32,6 +32,7 @@
         "/lunare/assets/flags/fr.svg",
         "/lunare/assets/flags/gb.svg",
         "/lunare/assets/flags/it.svg",
+        "/lunare/assets/icons/lunare-512.png",
         "/lunare/icons/icon-128x128.png",
         "/lunare/icons/icon-144x144.png",
         "/lunare/icons/icon-152x152.png",
@@ -56,6 +57,7 @@
     "/lunare/assets/flags/fr.svg": "a761902c65cfdca4058ce0c9d5f8eac667cd6118",
     "/lunare/assets/flags/gb.svg": "161ee20a0a75bb06d4f2ca9acdbb137d9a963cec",
     "/lunare/assets/flags/it.svg": "25ecff80eb26ef79709ab7278eb3991ac8cc2734",
+    "/lunare/assets/icons/lunare-512.png": "faa3acbd261c0fb22f180a069528f6570060ccbc",
     "/lunare/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
     "/lunare/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
     "/lunare/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
@@ -67,7 +69,7 @@
     "/lunare/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
     "/lunare/index.html": "f814549818271f3c16e8864c597cb2b65d449e67",
     "/lunare/main-RZX2PSDH.js": "d45f593790906dbbb4f57ff0458125ef2da8b9a4",
-    "/lunare/manifest.webmanifest": "6dd8f3bc3640ea710d7445b0b5edfefc11dcc678",
+    "/lunare/manifest.webmanifest": "6ebd89d35176e3cec71757f335428f6004e3856c",
     "/lunare/media/de-MZUAL5O7.svg": "f46bdcf00fbd79c764b116ef8250e678e4b71c8b",
     "/lunare/media/es-W5FXGZQG.svg": "c285598333fe5528683dcacfb4703245c15946fe",
     "/lunare/media/fr-6U4A3EWN.svg": "a761902c65cfdca4058ce0c9d5f8eac667cd6118",
