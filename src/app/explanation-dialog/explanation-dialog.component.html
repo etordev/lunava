@@ -1,53 +1,52 @@
 <div class="dialog">
 
   <h2 class="dialog-title">
-    {{ 'ExplainLabel' | translate }}
+    {{ 'Explanation.Title' | translate }}
   </h2>
 
   <div class="dialog-body">
 
-    <p>{{ 'Explanation.Text1' | translate }}</p>
-    <p>{{ 'Explanation.Text2' | translate }}</p>
+    <p>{{ 'Explanation.Intro1' | translate }}</p>
+    <p>{{ 'Explanation.Intro2' | translate }}</p>
 
     <hr />
 
-    <p>{{ 'Explanation.Text3' | translate }}</p>
+    <h3>{{ 'Explanation.LunarDayTitle' | translate }}</h3>
+    <p>{{ 'Explanation.LunarDayText1' | translate }}</p>
+    <p>{{ 'Explanation.LunarDayText2' | translate }}</p>
 
     <hr />
 
-    <p>{{ 'Explanation.Text4' | translate }}</p>
-    <p>{{ 'Explanation.Text5' | translate }}</p>
+    <h3>{{ 'Explanation.EpactTitle' | translate }}</h3>
+    <p>{{ 'Explanation.EpactText1' | translate }}</p>
+    <p>{{ 'Explanation.EpactText2' | translate }}</p>
 
     <hr />
 
-    <p>{{ 'Explanation.Text6' | translate }}</p>
-    <p>{{ 'Explanation.Text7' | translate }}</p>
+    <h3>{{ 'Explanation.CountTitle' | translate }}</h3>
+    <p>{{ 'Explanation.CountText1' | translate }}</p>
+    <p>{{ 'Explanation.CountText2' | translate }}</p>
+
+    <pre class="example">
+{{ 'Explanation.ExampleCalc' | translate }}
+    </pre>
+
+    <p>{{ 'Explanation.ExampleResult' | translate }}</p>
 
     <hr />
 
-    <p>{{ 'Explanation.Text8' | translate }}</p>
+    <h3>{{ 'Explanation.YearRuleTitle' | translate }}</h3>
+    <p>{{ 'Explanation.YearRuleText1' | translate }}</p>
+    <p>{{ 'Explanation.YearRuleText2' | translate }}</p>
 
-    <div class="math-block">
-      <div>{{ 'Explanation.Text9' | translate }}</div>
-      <div>{{ 'Explanation.Text10' | translate }}</div>
-    </div>
-
-    <hr />
-
-    <p>{{ 'Explanation.Text11' | translate }}</p>
-    <p>{{ 'Explanation.Text12' | translate }}</p>
-
-    <div class="callout">
-      {{ 'Explanation.Text13' | translate }}
-    </div>
+    <p class="note">
+      {{ 'Explanation.Note' | translate }}
+    </p>
 
   </div>
 
-  <button
-    class="close-btn"
-    cdkDialogClose
-    aria-label="Close dialog" (click)="close()">
-    {{ 'Explanation.Close' | translate }}
+  <button class="action close-btn" (click)="close()">
+    {{ 'Close' | translate }}
   </button>
 
 </div>

@@ -9,19 +9,30 @@
   "LangLabel": "Langue",
   "ExplainLabel": "Explication",
   "Explanation": {
-    "Text1": "Lunare suit le compte de la lune, un système traditionnel pour mesurer le temps en observant les phases lunaires.",
-    "Text2": "Avant les calendriers modernes, les jours du mois étaient comptés à partir de la nouvelle lune en suivant son cycle naturel, qui dure environ 29–30 jours.",
-    "Text3": "Le jour lunaire indique combien de jours se sont écoulés depuis le début du cycle lunaire en cours. Le jour 1 correspond à la nouvelle lune, puis la lune croît, devient pleine et décroît ensuite.",
-    "Text4": "L’épacte est un nombre qui indique combien de jours se sont écoulés depuis la dernière nouvelle lune au 1er janvier de l’année.",
-    "Text5": "Elle sert de point de départ pour calculer la succession des jours lunaires au cours de l’année.",
-    "Text6": "Une année solaire dure 365 jours, tandis qu’un cycle lunaire dure environ 29,53 jours, ce qui laisse un écart d’environ 11 jours chaque année.",
-    "Text7": "Pour cette raison, l’épacte augmente généralement d’environ 11 chaque année, avec des corrections cycliques lorsque le cycle de 30 jours est dépassé.",
-    "Text8": "Lunare utilise l’épacte de l’année en cours ainsi que le jour et le mois pour calculer le jour lunaire actuel.",
-    "Text9": "Exemple simplifié : avec une épacte de 29 et la date du 10 janvier, on ajoute les jours écoulés depuis le début de l’année (9) : 29 + 9 = 38.",
-    "Text10": "Le résultat est ramené dans le cycle 1–30 : 38 − 30 = 8, donc aujourd’hui est le 8e jour lunaire.",
-    "Text11": "Cette méthode ne suit pas l’astronomie moderne à la seconde près, mais un système de comptage traditionnel et historique.",
-    "Text12": "Pour cette raison, le résultat peut différer des calendriers astronomiques modernes.",
-    "Text13": "Lunare ne décrit pas la position réelle de la lune dans le ciel, mais la manière dont la lune était traditionnellement comptée dans le temps.",
-    "Close": "Fermer"
+    "Title": "Explication",
+    "Intro1": "Lunare suit le décompte lunaire traditionnel pour mesurer le temps à partir des phases de la Lune.",
+    "Intro2": "Avant les calendriers modernes, les jours étaient comptés à partir de la nouvelle lune en suivant son cycle naturel d’environ 29–30 jours.",
+
+    "LunarDayTitle": "Le jour lunaire",
+    "LunarDayText1": "Le jour lunaire indique combien de jours se sont écoulés depuis le début du cycle lunaire.",
+    "LunarDayText2": "Le jour 1 est la nouvelle lune, le jour 14 la pleine lune, puis la Lune décroît jusqu’au jour 30.",
+
+    "EpactTitle": "Qu’est-ce que l’épacte",
+    "EpactText1": "L’épacte indique combien de jours lunaires étaient déjà écoulés au début de l’année.",
+    "EpactText2": "Elle sert de point de départ pour le calcul.",
+
+    "CountTitle": "Comment fonctionne le calcul",
+    "CountText1": "Pour trouver le jour lunaire, on additionne l’épacte, les mois écoulés depuis mars et le jour du mois.",
+    "CountText2": "Si le total dépasse 30, on soustrait 30 jusqu’à revenir dans le cycle lunaire.",
+
+    "ExampleCalc": "Exemple :\nÉpacte 29\nMois depuis mars : 11\nJour du mois : 11\n\n29 + 11 + 11 = 51\n51 − 30 = 21",
+
+    "ExampleResult": "Le résultat est le 21ᵉ jour lunaire, phase de lune décroissante.",
+
+    "YearRuleTitle": "Pourquoi l’épacte augmente",
+    "YearRuleText1": "Une année solaire dure 365 jours, alors qu’un cycle lunaire dure environ 29 jours et demi.",
+    "YearRuleText2": "Pour cette raison, l’épacte augmente d’environ 11 chaque année.",
+
+    "Note": "Cette méthode suit un décompte traditionnel et non la position astronomique réelle de la Lune."
   }
 }
