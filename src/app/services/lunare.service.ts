@@ -12,7 +12,7 @@ export class LunareService {
   }
 
   phase(lunarDay: number): 'growing' | 'full' | 'waning' {
-    if (lunarDay === 15) return 'full';
-    return lunarDay < 15 ? 'growing' : 'waning';
+    if (lunarDay === 14) return 'full';
+    return lunarDay < 14 ? 'growing' : 'waning';
   }
 }

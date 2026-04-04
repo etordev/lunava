@@ -184,7 +184,7 @@ export class TodayComponent implements OnInit, OnDestroy {
   }
 
   updateMoonScale() {
-    const distance = Math.abs(this.lunarDay - 15);
+    const distance = Math.abs(this.lunarDay - 14);
     const normalized = 1 - distance / 15;
 
     // più evidente
