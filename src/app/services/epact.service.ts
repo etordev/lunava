@@ -20,14 +20,17 @@ export class EpactService {
   /**
    * Epact for the lunar year that contains the given calendar date.
    */
-  async getEpactForDate(date: Date): Promise<number> {
+  getEpactForDateSync(date: Date): number {
     const official = EPACT_URL;
-    const recalculated = this.calculateEpactFrom(
+    return this.calculateEpactFrom(
       official.epact,
       official.lastMarchYear,
       date
-    );
-    return recalculated.epact;
+    ).epact;
+  }
+
+  async getEpactForDate(date: Date): Promise<number> {
+    return this.getEpactForDateSync(date);
   }
 
   /**

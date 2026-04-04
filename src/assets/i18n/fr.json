@@ -10,6 +10,11 @@
   "ExplainLabel": "Explication",
   "PickDateLabel": "Choisir la date",
   "BackToToday": "Aujourd’hui",
+  "CalendarPrevMonth": "Mois précédent",
+  "CalendarNextMonth": "Mois suivant",
+  "CalendarMarkNew": "Nouvelle lune",
+  "CalendarMarkFull": "Pleine lune",
+  "CalendarMarkHalf": "Premier / dernier quartier",
   "Explanation": {
     "Title": "Explication",
     "Intro1": "Lunare suit le décompte lunaire traditionnel pour mesurer le temps à partir des phases de la Lune.",

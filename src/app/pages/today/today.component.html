@@ -55,22 +55,81 @@
   </span>
     <span class="date">{{ formattedDate }}</span>
     <div class="date-actions">
-      <input
-        #datePickerInput
-        type="date"
-        class="date-input-hidden"
-        [attr.min]="minPickDate"
-        [attr.max]="maxPickDate"
-        (change)="onDatePicked($event)"
-        [attr.aria-label]="'PickDateLabel' | translate"
-      />
-      <button
-        type="button"
-        class="pick-date-btn"
-        (click)="openDatePicker(datePickerInput)"
-      >
-        {{ 'PickDateLabel' | translate }}
-      </button>
+      <div class="date-picker-wrap" #datePickerWrap>
+        <button
+          type="button"
+          class="pick-date-btn"
+          (click)="toggleCalendar($event)"
+          [attr.aria-expanded]="calendarOpen"
+          aria-haspopup="dialog"
+        >
+          {{ 'PickDateLabel' | translate }}
+        </button>
+        <div
+          *ngIf="calendarOpen"
+          class="lunar-calendar-panel"
+          role="dialog"
+          [attr.aria-label]="'PickDateLabel' | translate"
+          (click)="$event.stopPropagation()"
+        >
+          <div class="cal-toolbar">
+            <button
+              type="button"
+              class="cal-nav"
+              (click)="prevCalendarMonth()"
+              [disabled]="!canPrevCalendarMonth()"
+              [attr.aria-label]="'CalendarPrevMonth' | translate"
+            >
+              ‹
+            </button>
+            <span class="cal-month-title">{{ calendarMonthTitle }}</span>
+            <button
+              type="button"
+              class="cal-nav"
+              (click)="nextCalendarMonth()"
+              [disabled]="!canNextCalendarMonth()"
+              [attr.aria-label]="'CalendarNextMonth' | translate"
+            >
+              ›
+            </button>
+          </div>
+          <div class="cal-weekdays">
+            <span *ngFor="let w of calendarWeekdayLabels" class="cal-wd">{{ w }}</span>
+          </div>
+          <div class="cal-grid">
+            <button
+              *ngFor="let cell of calendarCells"
+              type="button"
+              class="cal-cell"
+              [class.outside]="!cell.inMonth"
+              [class.selected]="cell.selected"
+              [class.mark-new]="cell.marker === 'new'"
+              [class.mark-full]="cell.marker === 'full'"
+              [class.mark-half]="cell.marker === 'half'"
+              [disabled]="!cell.inRange"
+              (click)="selectCalendarDay(cell)"
+              [attr.aria-label]="calendarCellAriaLabel(cell)"
+            >
+              <span class="cal-day-num">{{ cell.dayOfMonth }}</span>
+              <span *ngIf="cell.marker" class="cal-mark" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="cal-legend">
+            <span class="cal-legend-item">
+              <span class="cal-dot new" aria-hidden="true"></span>
+              {{ 'CalendarMarkNew' | translate }}
+            </span>
+            <span class="cal-legend-item">
+              <span class="cal-dot full" aria-hidden="true"></span>
+              {{ 'CalendarMarkFull' | translate }}
+            </span>
+            <span class="cal-legend-item">
+              <span class="cal-dot half" aria-hidden="true"></span>
+              {{ 'CalendarMarkHalf' | translate }}
+            </span>
+          </div>
+        </div>
+      </div>
       <button
         *ngIf="!isShowingToday()"
         type="button"
