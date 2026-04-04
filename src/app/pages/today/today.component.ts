@@ -324,11 +324,12 @@ export class TodayComponent implements OnInit, OnDestroy {
     this.moonShadowMode = 'new';
   }
 
-  moonShadowStyle(): Record<string, number> {
-    if (this.moonShadowMode === 'waxing' || this.moonShadowMode === 'waning') {
-      return { '--lit': this.moonShadowLit };
-    }
-    return {};
+  moonDiskCxWaning(): number {
+    return 50 + this.moonShadowLit * 100;
+  }
+
+  moonDiskCxWaxing(): number {
+    return 50 - this.moonShadowLit * 100;
   }
 
   updateMoonScale() {

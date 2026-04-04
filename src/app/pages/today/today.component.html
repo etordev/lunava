@@ -167,14 +167,41 @@
   </div>
 
   <div class="moon-css">
-    <div class="moon-base"></div>
-    <div
-      class="moon-shadow"
-      [class.moon-shadow--full]="moonShadowMode === 'full'"
-      [class.moon-shadow--new]="moonShadowMode === 'new'"
-      [class.moon-shadow--waxing]="moonShadowMode === 'waxing'"
-      [class.moon-shadow--waning]="moonShadowMode === 'waning'"
-      [ngStyle]="moonShadowStyle()"
-    ></div>
+    <svg class="moon-svg" viewBox="0 0 100 100" aria-hidden="true">
+      <defs>
+        <clipPath id="moonDiscClip">
+          <circle cx="50" cy="50" r="50" />
+        </clipPath>
+        <!--
+          Radial in the shadow disk bbox: curved iso-opacity (not a vertical cut).
+          Opacity stays high in the core (≥0.88) so there is no grey “bright spot”.
+        -->
+        <radialGradient id="phaseShade" cx="50%" cy="50%" r="50%" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="rgb(2, 6, 23)" stop-opacity="0.9" />
+          <stop offset="45%" stop-color="rgb(2, 6, 23)" stop-opacity="0.93" />
+          <stop offset="100%" stop-color="rgb(2, 6, 23)" stop-opacity="0.97" />
+        </radialGradient>
+      </defs>
+      <circle cx="50" cy="50" r="50" fill="#f5f5f5" />
+      <g clip-path="url(#moonDiscClip)">
+        @if (moonShadowMode === 'new') {
+          <circle cx="50" cy="50" r="50" fill="rgba(2, 6, 23, 0.96)" />
+        } @else if (moonShadowMode === 'waxing') {
+          <circle
+            [attr.cx]="moonDiskCxWaxing()"
+            cy="50"
+            r="50"
+            fill="url(#phaseShade)"
+          />
+        } @else if (moonShadowMode === 'waning') {
+          <circle
+            [attr.cx]="moonDiskCxWaning()"
+            cy="50"
+            r="50"
+            fill="url(#phaseShade)"
+          />
+        }
+      </g>
+    </svg>
   </div>
 </div>
