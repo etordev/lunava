@@ -1,4 +1,5 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withFetch, HttpClientModule, HttpClient } from '@angular/common/http';
 
@@ -17,7 +18,7 @@ export const appConfig: ApplicationConfig = {
         loader: {
           provide: TranslateLoader,
           useClass: JsonTranslateLoader,
-          deps: [HttpClient]
+          deps: [HttpClient, DOCUMENT]
         },
         useDefaultLang: true,
         defaultLanguage: 'en',
