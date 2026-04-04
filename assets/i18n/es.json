@@ -8,6 +8,13 @@
   "Tagline": "El conteo de la luna",
   "LangLabel": "Idioma",
   "ExplainLabel": "Explicación",
+  "PickDateLabel": "Elegir fecha",
+  "BackToToday": "Hoy",
+  "CalendarPrevMonth": "Mes anterior",
+  "CalendarNextMonth": "Mes siguiente",
+  "CalendarMarkNew": "Luna nueva",
+  "CalendarMarkFull": "Luna llena",
+  "CalendarMarkHalf": "Cuarto creciente / menguante",
   "Explanation": {
     "Title": "Explicación",
     "Intro1": "Lunare sigue el conteo lunar tradicional para medir el tiempo observando las fases de la Luna.",

@@ -8,6 +8,13 @@
   "Tagline": "The moon’s reckoning",
   "LangLabel": "Language",
   "ExplainLabel": "Explanation",
+  "PickDateLabel": "Choose date",
+  "BackToToday": "Today",
+  "CalendarPrevMonth": "Previous month",
+  "CalendarNextMonth": "Next month",
+  "CalendarMarkNew": "New moon",
+  "CalendarMarkFull": "Full moon",
+  "CalendarMarkHalf": "Half moon",
   "Explanation": {
     "Title": "Explanation",
     "Intro1": "Lunare follows the traditional lunar count used to measure time by observing the Moon’s phases.",

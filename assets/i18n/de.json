@@ -7,6 +7,13 @@
   "Tagline": "Der Mond zählt die Zeit",
   "LangLabel": "Sprache",
   "ExplainLabel": "Erklärung",
+  "PickDateLabel": "Datum wählen",
+  "BackToToday": "Heute",
+  "CalendarPrevMonth": "Vorheriger Monat",
+  "CalendarNextMonth": "Nächster Monat",
+  "CalendarMarkNew": "Neumond",
+  "CalendarMarkFull": "Vollmond",
+  "CalendarMarkHalf": "Halbmond",
   "Explanation": {
     "Title": "Erklärung",
     "Intro1": "Lunare folgt der traditionellen Mondzählung, einem System zur Zeitmessung anhand der Mondphasen.",
