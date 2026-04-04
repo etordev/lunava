@@ -1,8 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { firstValueFrom } from 'rxjs';
-import { EpactSource } from '../models/epact';
-import { db, EpactState } from '../db/lunare.db';
 import { EPACT_URL } from '../constants/epact';
 
 /**
@@ -14,47 +10,25 @@ import { EPACT_URL } from '../constants/epact';
 @Injectable({ providedIn: 'root' })
 export class EpactService {
 
-  constructor(private http: HttpClient) {}
-
   /**
-   * Returns the current epact value.
-   * Ensures local persistence and automatic March updates.
+   * Returns the current epact value (same rules as {@link getEpactForDate} for “now”).
    */
   async getCurrentEpact(): Promise<number> {
-    const state = await this.ensureEpact();
-    return state.epact;
+    return this.getEpactForDate(new Date());
   }
 
   /**
-   * Loads the local epact state or initializes it
-   * from the official public source if missing.
+   * Epact for the lunar year that contains the given calendar date.
    */
-  private async ensureEpact(): Promise<any> {
+  async getEpactForDate(date: Date): Promise<number> {
     const official = EPACT_URL;
-    const now = new Date();
-
-    // ricalcolo SEMPRE partendo dalla fonte ufficiale
     const recalculated = this.calculateEpactFrom(
       official.epact,
       official.lastMarchYear,
-      now
+      date
     );
-    console.log('recalculated epact', recalculated);
-    const state = {
-      ...official,
-      ...recalculated
-    };
-
-    // sovrascrive sempre: il DB è solo cache
-    // await db.epact.put(state);
-
-    return state;
+    return recalculated.epact;
   }
-
-  /**
-   * Loads the official epact definition from the JSON.
-   * This is the only external source of truth.
-   */
 
   /**
    * Advances the epact by one lunar year (+11 mod 30).
@@ -63,34 +37,44 @@ export class EpactService {
     return ((epact + 11 - 1) % 30) + 1;
   }
 
+  /** Inverse of {@link advanceEpact} for years before the base year. */
+  private retreatEpact(epact: number): number {
+    const e = epact - 11;
+    return e < 1 ? e + 30 : e;
+  }
+
   /**
    * Calculates the epact value starting from a base year,
-   * advancing it for each March that has passed.
+   * advancing or retreating at each March boundary.
    */
   private calculateEpactFrom(
     baseEpact: number,
     baseMarchYear: number,
-    now: Date
-    ): { epact: number; lastMarchYear: number } {
-
+    target: Date
+  ): { epact: number; lastMarchYear: number } {
     let epact = baseEpact;
-    let year = baseMarchYear;
+    const currentYear = target.getFullYear();
+    const isAfterMarch = target.getMonth() >= 2;
 
-    const currentYear = now.getFullYear();
-    const isAfterMarch = now.getMonth() >= 2; // marzo = 2
-
-    // Caso 1: stesso anno della base → nessun avanzamento
     if (currentYear === baseMarchYear) {
-      return { epact, lastMarchYear: year };
+      return { epact, lastMarchYear: baseMarchYear };
     }
 
-    // Caso 2: anni successivi
+    if (currentYear < baseMarchYear) {
+      for (let y = baseMarchYear; y > currentYear; y--) {
+        epact = this.retreatEpact(epact);
+      }
+      if (!isAfterMarch) {
+        epact = this.retreatEpact(epact);
+      }
+      return { epact, lastMarchYear: currentYear };
+    }
+
+    let year = baseMarchYear;
     for (let y = baseMarchYear + 1; y <= currentYear; y++) {
-      // per l’anno corrente, avanza solo se siamo da marzo in poi
       if (y === currentYear && !isAfterMarch) {
         break;
       }
-
       epact = this.advanceEpact(epact);
       year = y;
     }

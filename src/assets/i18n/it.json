@@ -8,6 +8,8 @@
   "Tagline": "Il conto della Luna",
   "LangLabel": "Lingua",
   "ExplainLabel": "Spiegazione",
+  "PickDateLabel": "Scegli data",
+  "BackToToday": "Oggi",
   "Explanation": {
     "Title": "Spiegazione",
     "Intro1": "Lunare segue il conto della Luna, un sistema tradizionale usato per misurare il tempo osservando le fasi lunari.",

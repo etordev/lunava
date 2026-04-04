@@ -54,6 +54,32 @@
     {{ 'Tagline' | translate }}
   </span>
     <span class="date">{{ formattedDate }}</span>
+    <div class="date-actions">
+      <input
+        #datePickerInput
+        type="date"
+        class="date-input-hidden"
+        [attr.min]="minPickDate"
+        [attr.max]="maxPickDate"
+        (change)="onDatePicked($event)"
+        [attr.aria-label]="'PickDateLabel' | translate"
+      />
+      <button
+        type="button"
+        class="pick-date-btn"
+        (click)="openDatePicker(datePickerInput)"
+      >
+        {{ 'PickDateLabel' | translate }}
+      </button>
+      <button
+        *ngIf="!isShowingToday()"
+        type="button"
+        class="today-btn"
+        (click)="goToToday()"
+      >
+        {{ 'BackToToday' | translate }}
+      </button>
+    </div>
   </div>
 
   <div class="card">

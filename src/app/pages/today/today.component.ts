@@ -18,10 +18,13 @@ import { ExplanationDialogComponent } from '../../explanation-dialog/explanation
 export class TodayComponent implements OnInit, OnDestroy {
   private lastComputedDate = new Date().toDateString();
   private dayCheckTimer?: number;
+  /** Calendar date used for lunar day, phase, and moon visualization. */
+  displayDate = new Date();
+  readonly minPickDate = '1900-01-01';
+  readonly maxPickDate = '2100-12-31';
   lunarDay = 0;
   phase = '';
   epact = 0;
-  today = new Date();
   phaseLabel = '';
   shadowX = 100;
   moonScale = 1;
@@ -40,9 +43,50 @@ export class TodayComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    this.displayDate = new Date();
     this.initLang();
     this.initData();
     this.startDayWatcher();
+  }
+
+  isShowingToday(): boolean {
+    const now = new Date();
+    return (
+      this.displayDate.getFullYear() === now.getFullYear() &&
+      this.displayDate.getMonth() === now.getMonth() &&
+      this.displayDate.getDate() === now.getDate()
+    );
+  }
+
+  goToToday(): void {
+    this.displayDate = new Date();
+    void this.initData();
+  }
+
+  openDatePicker(input: HTMLInputElement): void {
+    input.value = this.toIsoDate(this.displayDate);
+    if (typeof input.showPicker === 'function') {
+      input.showPicker();
+    } else {
+      input.click();
+    }
+  }
+
+  onDatePicked(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    if (!value) {
+      return;
+    }
+    const [y, m, d] = value.split('-').map(Number);
+    this.displayDate = new Date(y, m - 1, d);
+    void this.initData();
+  }
+
+  private toIsoDate(d: Date): string {
+    const y = d.getFullYear();
+    const mo = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${mo}-${day}`;
   }
 
   openExplanation() {
@@ -58,9 +102,11 @@ export class TodayComponent implements OnInit, OnDestroy {
 
     if (todayString !== this.lastComputedDate) {
       this.lastComputedDate = todayString;
-
-      await this.initData();
-      this._cdr.detectChanges();
+      if (this.isShowingToday()) {
+        this.displayDate = new Date();
+        await this.initData();
+        this._cdr.detectChanges();
+      }
      }
     }, 60_000);
   }
@@ -88,15 +134,16 @@ export class TodayComponent implements OnInit, OnDestroy {
     await this.setLunareData();
     this.updateMoonShadow();
     this.updateMoonScale();
+    const lang = this._translateService.currentLang || DEFAULT_LANG;
+    this.updateFormattedDate(lang);
     this._cdr.detectChanges();
   }
 
   async setLunareData() {
-    this.epact = await this._epactService.getCurrentEpact();
-    console.log('Current epact:', this.epact);
-    const today = new Date();
-    const m = (today.getMonth() + 10) % 12 + 1;
-    const d = today.getDate();
+    this.epact = await this._epactService.getEpactForDate(this.displayDate);
+    console.log('Epact for date:', this.epact);
+    const m = (this.displayDate.getMonth() + 10) % 12 + 1;
+    const d = this.displayDate.getDate();
     console.log('month', m);
     console.log('day', d);
     this.lunarDay = this._lunareService.calcLunarDay(this.epact, m, d);
@@ -150,7 +197,7 @@ export class TodayComponent implements OnInit, OnDestroy {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
-  }).format(this.today);
+  }).format(this.displayDate);
 }
 
   ngOnDestroy() {

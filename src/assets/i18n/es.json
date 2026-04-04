@@ -8,6 +8,8 @@
   "Tagline": "El conteo de la luna",
   "LangLabel": "Idioma",
   "ExplainLabel": "Explicación",
+  "PickDateLabel": "Elegir fecha",
+  "BackToToday": "Hoy",
   "Explanation": {
     "Title": "Explicación",
     "Intro1": "Lunare sigue el conteo lunar tradicional para medir el tiempo observando las fases de la Luna.",

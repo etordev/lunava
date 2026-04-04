@@ -8,6 +8,8 @@
   "Tagline": "The moon’s reckoning",
   "LangLabel": "Language",
   "ExplainLabel": "Explanation",
+  "PickDateLabel": "Choose date",
+  "BackToToday": "Today",
   "Explanation": {
     "Title": "Explanation",
     "Intro1": "Lunare follows the traditional lunar count used to measure time by observing the Moon’s phases.",
