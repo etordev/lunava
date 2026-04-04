@@ -54,9 +54,11 @@ export class TodayComponent implements OnInit, OnDestroy {
   phase = '';
   epact = 0;
   phaseLabel = '';
-  shadowX = 100;
   moonScale = 1;
-  shadowOffset = 0;
+
+  /** Drives moon overlay: full disc, new moon, or waxing/waning terminator (0–1 lit). */
+  moonShadowMode: 'full' | 'new' | 'waxing' | 'waning' = 'waxing';
+  moonShadowLit = 0;
   languages = AVAILABLE_LANGUAGES;
   currentLang = DEFAULT_LANG;
   formattedDate = '';
@@ -295,30 +297,38 @@ export class TodayComponent implements OnInit, OnDestroy {
   }
 
   updateMoonShadow() {
-    // giorno lunare normalizzato 1–30
     const day = this.lunarDay;
 
-    // 🌑 completamente nuova
-    if (day === 30 || day === 0) {
-      this.shadowOffset = 100;
+    if (day === 14) {
+      this.moonShadowMode = 'full';
       return;
     }
 
-    // 🌕 massimo splendore a 14
-    if (day <= 14) {
-      this.shadowOffset = 0;
+    if (day === 1 || day === 30 || day === 0) {
+      this.moonShadowMode = 'new';
       return;
     }
 
-    // 🌖 fase calante: 15 → 29
-    // progress: 0 (giorno 15) → 1 (giorno 29)
-    const progress = (day - 15) / 14;
+    if (day >= 2 && day <= 13) {
+      this.moonShadowMode = 'waxing';
+      this.moonShadowLit = (day - 1) / 13;
+      return;
+    }
 
-    // curva dolce (molto importante)
-    const eased = Math.pow(progress, 1.35);
+    if (day >= 15 && day <= 29) {
+      this.moonShadowMode = 'waning';
+      this.moonShadowLit = (30 - day) / 15;
+      return;
+    }
 
-    // max oscuramento ≈ 92% (mai subito nero)
-    this.shadowOffset = eased * 92;
+    this.moonShadowMode = 'new';
+  }
+
+  moonShadowStyle(): Record<string, number> {
+    if (this.moonShadowMode === 'waxing' || this.moonShadowMode === 'waning') {
+      return { '--lit': this.moonShadowLit };
+    }
+    return {};
   }
 
   updateMoonScale() {

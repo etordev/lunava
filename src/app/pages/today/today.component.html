@@ -170,7 +170,11 @@
     <div class="moon-base"></div>
     <div
       class="moon-shadow"
-      [ngStyle]="{ '--shadow': shadowOffset + '%' }"
+      [class.moon-shadow--full]="moonShadowMode === 'full'"
+      [class.moon-shadow--new]="moonShadowMode === 'new'"
+      [class.moon-shadow--waxing]="moonShadowMode === 'waxing'"
+      [class.moon-shadow--waning]="moonShadowMode === 'waning'"
+      [ngStyle]="moonShadowStyle()"
     ></div>
   </div>
 </div>
